@@ -21,6 +21,7 @@ class deck:
     def __init__(self):
         self.cards = []
         self.populate()
+        self.drawn_cards = []
 
     def populate(self):
         suits = ["Cups", "Pentacles", "Swords","Wands"]
@@ -35,7 +36,10 @@ class deck:
     def draw_card(self):
         if len(self.cards) == 0:
             return None
-        return self.cards.pop()
+        card = random.choice(self.cards)
+        self.cards.remove(card)
+        self.drawn_cards.append(card)
+        return card
     
 
     
